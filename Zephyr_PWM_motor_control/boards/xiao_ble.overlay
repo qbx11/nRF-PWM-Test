@@ -1,0 +1,44 @@
+#include <zephyr/dt-bindings/pwm/pwm.h>
+#include <zephyr/dt-bindings/pinctrl/nrf-pinctrl.h>
+
+/ {
+    aliases {
+        vibropwm = &vibro_pin;
+    };
+
+    custom_pwm_devices {
+        compatible = "pwm-leds";
+        vibro_pin: vibro_pwm_0 {
+            pwms = <&pwm0 0 PWM_NSEC(10000000) PWM_POLARITY_NORMAL>;
+        };
+    };
+};
+
+&pinctrl {
+    pwm0_custom: pwm0_custom {
+        group1 {
+            psels = <NRF_PSEL(PWM_OUT0, 0, 2)>;
+            nordic,invert;
+        };
+    };
+
+    pwm0_sleep_custom: pwm0_sleep_custom {
+        group1 {
+            psels = <NRF_PSEL(PWM_OUT0, 0, 2)>;
+            low-power-enable;
+        };
+    };
+};
+
+&pwm0 {
+    status = "okay";
+    pinctrl-0 = <&pwm0_custom>;
+    pinctrl-1 = <&pwm0_sleep_custom>;
+    pinctrl-names = "default", "sleep";
+};
+
+&zephyr_udc0 {
+    cdc_acm_uart0: cdc_acm_uart0 {
+        compatible = "zephyr,cdc-acm-uart";
+    };
+};
