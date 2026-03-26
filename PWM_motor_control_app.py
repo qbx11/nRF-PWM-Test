@@ -35,7 +35,7 @@ class MotorController(QMainWindow):
         self._build_ui()
         self._refresh_ports()
 
-    # ──────────────────────────────────────────── UI build ──────
+    # UI build 
 
     def _build_ui(self):
         central = QWidget()
@@ -175,7 +175,7 @@ class MotorController(QMainWindow):
                 base.format(bg="#c0392b", hover="#922b21")
             )
 
-    # ──────────────────────────────────────────── Serial ────────
+    #Serial
 
     def _refresh_ports(self):
         self.port_combo.clear()
