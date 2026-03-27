@@ -20,7 +20,8 @@
 1. Build
 2. Podłączyć nRF, zrestartować (kliknać dwa razy RST)
 3. W terminalu nRF Connect: `west flash -r uf2`
-4. Uruchomić aplikacje 
+4. Uruchomić aplikacje
+5. **Zaznaczyć `Max 3V` dla MT58 !**
 
 ## Okno aplikacji:
 <img width="592" height="355" alt="image" src="https://github.com/user-attachments/assets/bcad4212-90d0-4a0c-89df-acdb37d3b001" />
