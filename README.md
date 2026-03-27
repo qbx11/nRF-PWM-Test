@@ -1,4 +1,4 @@
-# nRF PWM Tester for vibration motor control
+# nRF PWM tester do silnika wibracyjnego
 
 ## Sprzęt:
 - **Mikrokontroler:** Seeed Xiao nRF52840
